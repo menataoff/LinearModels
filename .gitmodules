@@ -1,0 +1,6 @@
+[submodule "Optimizers"]
+	path = Optimizers
+	url = git@github.com:menataoff/ML-Optimizers.git
+[submodule "optimizers"]
+	path = optimizers
+	url = git@github.com:menataoff/ML-Optimizers.git
