@@ -16,9 +16,9 @@ print(f"SGD: w = {w[0]:.6f}")
 # Тест Adam
 w2 = np.array([5.0], dtype=np.float32)
 param2 = Parameter(w2)
-opt2 = Adam([param2], lr=0.1)
+opt2 = Adam([param2], lr=0.1, beta1=0.95, beta2=0.95)
 
-for _ in range(10):
+for _ in range(256):
     param2.grad = np.array([2 * w2[0]])
     opt2.step()
     opt2.zero_grad()
