@@ -6,7 +6,7 @@ from optimizers import SGD, Adam, Adagrad, GradientDescent, Momentum, NAG, RMSPr
 from optimizers import Parameter, BaseOptimizer
 from abc import ABC, abstractmethod
 from typing import Iterable, Union, Optional
-from .losses import BaseLoss
+from ..losses import BaseLoss
 
 class LinearModel(ABC):
     def __init__(self,

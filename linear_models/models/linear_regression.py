@@ -1,5 +1,5 @@
 import numpy as np
-from ..base_model import LinearModel
+from ..core import LinearModel
 from ..losses import MSE, MAE, LogCosh, BaseLoss
 
 class LinearRegression(LinearModel):
