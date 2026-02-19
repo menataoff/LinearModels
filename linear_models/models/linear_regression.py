@@ -1,5 +1,6 @@
 import numpy as np
 from ..base_model import LinearModel
+from ..losses import *
 
 class LinearRegression(LinearModel):
     def __init__(self,
