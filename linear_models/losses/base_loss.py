@@ -6,7 +6,7 @@ import numpy as np
 
 class BaseLoss(ABC):
     @abstractmethod
-    def __call__(self, y_pred: np.ndarray, y: np.ndarray) -> float:
+    def __call__(self, y: np.ndarray, y_pred: np.ndarray) -> float:
         """Compute loss given y_pred and y."""
         pass
 
