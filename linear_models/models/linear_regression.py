@@ -1,16 +1,28 @@
 import numpy as np
 from ..base_model import LinearModel
-from ..losses import *
+from ..losses import MSE, MAE, LogCosh, BaseLoss
 
 class LinearRegression(LinearModel):
     def __init__(self,
                  loss_function: str='mse',
-                 optimizer: str = "sgd",
-                 lr: float = 0.01,
-                 weight_decay: float = 0.0,
                  **kwargs) -> None:
-        self.loss_function = loss_function
-        super().__init__(optimizer, lr, weight_decay, **kwargs)
+        super().__init__(loss_function, **kwargs)
 
-    def _compute_loss(self, y_pred: np.ndarray, y: np.ndarray) -> float:
-        pass
+    def _forward(self, X: np.ndarray) -> np.ndarray:
+        """Forward pass of the linear regression model."""
+        return X @ self.weights + self.bias
+
+    def _create_loss(self) -> BaseLoss:
+        losses_map = {
+            'mse': MSE,
+            'mae': MAE,
+            'logcosh': LogCosh,
+        }
+
+        creator = losses_map.get(self.loss_function.lower())
+        if creator is None:
+            raise ValueError(f"Unknown loss or not allowed for linear regression loss: {self.loss_function}")
+
+        return creator()
+
+

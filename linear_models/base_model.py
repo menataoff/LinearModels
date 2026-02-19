@@ -39,9 +39,6 @@ class LinearModel(ABC):
     def _create_loss(self) -> BaseLoss:
         """
         Method to create the loss function
-        :param y_pred:
-        :param y:
-        :return: loss function
         """
         pass
 
@@ -104,4 +101,4 @@ class LinearModel(ABC):
                     print(f"Epoch {epoch+1}/{epochs}, loss: {loss}")
 
     def predict(self, X: np.ndarray) -> np.ndarray:
-        return X @ self.weights + self.bias
+        return self._forward(X)
