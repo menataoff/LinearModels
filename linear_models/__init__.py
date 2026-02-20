@@ -3,12 +3,14 @@ LinearModels - pure NumPy implementation of module linear_models.
 """
 from .core import LinearModel
 from .models import LinearRegression
+from .models import LogisticRegression
 from .losses import MSE, MAE, LogCosh
 
 # Явно указываем, что экспортируется
 __all__ = [
     'LinearModel',
     'LinearRegression',
+    'LogisticRegression',
     'MSE',
     'MAE',
     'LogCosh',
